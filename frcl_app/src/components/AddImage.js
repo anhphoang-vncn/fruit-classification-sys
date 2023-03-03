@@ -14,7 +14,9 @@ import styles from "../styles/add_Image_styles";
 const AddImage = () => {
   const apiIp = "";
   const apiPort = "";
+
   // ===== set state for selected image
+
   const [image, setImage] = useState(null);
   const [imageBase64, setImageBase64] = useState(null);
 
@@ -36,7 +38,6 @@ const AddImage = () => {
         const json = await res.json();
         console.log("Fetch data success: ", json);
         await setResponse(json.fruit_detect);
-        // await setIsLoading(false);
       } catch (error) {
         console.log("Failed to fetch: ", error);
       }
@@ -44,7 +45,8 @@ const AddImage = () => {
     detectFruits();
   });
 
-  // select image from library
+  // ===== select image from library
+
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -62,7 +64,8 @@ const AddImage = () => {
     }
   };
 
-  // get from camera
+  // ===== get from camera
+
   const takePicture = async () => {
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -95,7 +98,9 @@ const AddImage = () => {
         )}
 
         <View style={styles.row}>
+
           {/* Library button*/}
+
           <TouchableOpacity
             onPress={() => pickImage()}
             style={styles.button_library}
@@ -104,6 +109,7 @@ const AddImage = () => {
           </TouchableOpacity>
 
           {/* Camera button */}
+
           <TouchableOpacity
             onPress={() => takePicture()}
             style={styles.button_camera}
@@ -117,9 +123,12 @@ const AddImage = () => {
             {isLoading === true && <ActivityIndicator size="large" color="#C060A1" />} */}
 
       {/* result panel */}
+
       {response && (
         <View style={styles.data_view_fruit_name}>
+
           {/* fruit name */}
+
           <Text style={styles.text_fruit_name}>
             {vitaminData[response].name}{" "}
           </Text>
@@ -127,7 +136,9 @@ const AddImage = () => {
       )}
       {response ? (
         <ScrollView style={styles.data_view}>
+
           {/* fruit info */}
+
           <Text style={styles.text_vitamin}>• Vitamin content in 100g </Text>
           <Text style={styles.text_vitamin}>
             (μg = microgam • mg = miligam){" "}
@@ -165,19 +176,23 @@ const AddImage = () => {
           <Text></Text>
 
           {/* fruit description */}
+
           <Text style={styles.text_describe}>
             • Describe: {vitaminData[response].meta}{" "}
           </Text>
           <Text></Text>
 
           {/* USDA */}
+
           <Text style={{ color: "#00005C" }}>Reference data from USDA</Text>
           <Text></Text>
           <Text></Text>
         </ScrollView>
       ) : (
         <View style={styles.welcome_view}>
+
           {/* tips display */}
+
           <Text style={styles.text_welcome}>
             {"Tips: Choose an fruit image from Library or Camera for detect"}
           </Text>
