@@ -1,5 +1,8 @@
 import Ping from "ping-wrapper";
 import request from "request";
+import serviceConfig from "../config/service-config.mjs";
+const frclassifierPort = serviceConfig.setFrclassifierPort();
+const frclassifierIp = serviceConfig.setFrclassifierIp();
 
 const servicePing = () => {
   Ping.configure();
@@ -10,7 +13,7 @@ const servicePing = () => {
     if (countSeconds % 5 == 0) {
       //   call frclassifier
       request(
-        "http://localhost:11500/api/test",
+        "http://" + frclassifierIp + ":" + frclassifierPort + "/api/test",
         { json: true },
         (err, res, body) => {
           if (err) {

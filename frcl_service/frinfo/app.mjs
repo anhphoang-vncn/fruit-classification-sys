@@ -1,8 +1,9 @@
 // const express = require('express')
 import express from "express";
 import autoPing from "./service/autoPing.mjs";
+import serviceConfig from "./config/service-config.mjs";
 const app = express();
-const port = 11600;
+const port = serviceConfig.setFrinfoPort();
 
 import fruitInfo from "./store/fruitInfo.mjs";
 
