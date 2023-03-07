@@ -4,7 +4,7 @@
 
 #### Start service
 
-`npm install`
-`npm start`
+1. `$ npm install`
+2. `$ npm start`
 
 contact: phoanganh148@gmail.com<br>
