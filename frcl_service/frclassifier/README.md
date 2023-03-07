@@ -1,18 +1,20 @@
 # Frcl service
 
-Python API for Fruit classification using Tensorflow
+### Python API for Fruit classification using Tensorflow
 
-\*\* Setup service
+#### Setup service:
 
-<code> pip install -r setup.txt </code>
+`$ pip install -r setup.txt`
 
-\*\* Start service
+#### Start service:
 
-<code> python api_server.py </code>
+`$ python api_server.py`
 
-\*\* API
+#### ROUTE:
 
-<p>-- API test ==> [GET] yourIP:11500/api/test</p>
-<p>-- API fruit classifier ==> [POST] your-IP:11500/api/classifier</p>
+1. API test ==> [GET] /api/test
+2. API fruit classifier ==> [POST] /api/classifier
+
+#### Default PORT = 11500
 
 contact: phoanganh148@gmail.com<br>
