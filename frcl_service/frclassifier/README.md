@@ -12,7 +12,7 @@ Python API for Fruit classification using Tensorflow
 
 \*\* API
 
--- API test ==> [GET] yourIP:11500/api/test
--- API fruit classifier ==> [POST] your-IP:11500/api/classifier
+<p>-- API test ==> [GET] yourIP:11500/api/test</p>
+<p>-- API fruit classifier ==> [POST] your-IP:11500/api/classifier</p>
 
 contact: phoanganh148@gmail.com<br>
