@@ -8,12 +8,13 @@ const servicePing = () => {
   Ping.configure();
   var ping = new Ping("127.0.0.1");
   let countSeconds = 5;
+  let countService = 0;
   ping.on("ping", function (data) {
     countSeconds += 1;
     if (countSeconds % 5 == 0) {
       //   call frclassifier
       request(
-        "http://" + frclassifierIp + ":" + frclassifierPort + "/api/test",
+        "http://" + frclassifierIp + ":" + frclassifierPort,
         { json: true },
         (err, res, body) => {
           if (err) {
@@ -22,12 +23,25 @@ const servicePing = () => {
               err
             );
           }
+          // count service
+          countService = 1;
           //   log
           let d = new Date();
           let time1 = d.getFullYear() + "/" + d.getMonth() + "/" + d.getDate();
           let time2 =
             d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-          console.log("[INFO]:", time1, time2, "service GOOD");
+          console.log(
+            "[INFO]:",
+            time1,
+            time2,
+            "frclassifier service: Ping...",
+            "\n[INFO]:",
+            time1,
+            time2,
+            "Broadcast message to ",
+            countService,
+            " client(s)"
+          );
         }
       );
     }
