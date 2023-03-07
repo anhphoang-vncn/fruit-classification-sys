@@ -12,8 +12,8 @@ import vitaminData from "../storage/fruit_data";
 import styles from "../styles/add_Image_styles";
 
 const AddImage = () => {
-  const apiIp = "";
-  const apiPort = "";
+  const apiIp = "192.168.100.140";
+  const apiPort = "8888";
 
   // ===== set state for selected image
 
